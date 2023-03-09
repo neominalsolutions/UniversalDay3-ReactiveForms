@@ -1,0 +1,28 @@
+<input placeholder="([ngModel])" [(ngModel)]="firstname" />
+<input type="checkbox" [(ngModel)]="valid" /> Is Valid {{valid}}
+
+<br>
+
+
+<input type="checkbox" [checked]="valid" (change)="valid = $any($event.target).checked" /> Is Valid {{valid}}
+
+
+<!-- aynı anda hem property binding hemde event binding yapar -->
+<br>
+<input placeholder="[ngModel]" [ngModel]="firstname" (ngModelChange)="firstname = $event" />
+<br>
+
+<!--  -->
+<!-- one way binding -->
+<input placeholder="[value]" [value]="firstname" (input)="firstname = $any($event.target).value" />
+<br>
+
+<p>
+  {{firstname}}
+</p>
+
+<h1></h1>
+
+<div *ngFor="let name of names">
+  <input [value]="name" [readOnly]="true">
+</div>
